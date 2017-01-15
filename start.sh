@@ -8,4 +8,4 @@ if [ ! -e "$CATALINA_HOME/conf/ssl/keystore.jks" ]; then
 	-ext BC:true=ca:true \
 	-dname "cn=$HOST"
 fi
-catalina.sh run
+exec catalina.sh run
