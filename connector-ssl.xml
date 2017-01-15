@@ -1,0 +1,8 @@
+    <Connector	protocol="HTTP/1.1"
+				sslImplementationName="org.apache.tomcat.util.net.jsse.JSSEImplementation"
+				port="8443"
+				maxThreads="150" SSLEnabled="true">
+        <SSLHostConfig>
+            <Certificate certificateKeystoreFile="conf/ssl/keystore.jks"/>
+        </SSLHostConfig>
+    </Connector>
