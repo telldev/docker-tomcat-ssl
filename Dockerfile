@@ -1,11 +1,10 @@
-FROM tomcat:8.5
+FROM tomcat:9
 
-COPY start.sh /usr/local/bin
 COPY connector-ssl.xml .
 RUN sed -i '/<Service name="Catalina">/ r connector-ssl.xml' "$CATALINA_HOME/conf/server.xml" && rm connector-ssl.xml
 
-EXPOSE 8443
+EXPOSE 80, 8443
 
-VOLUME $CATALINA_HOME/conf
+VOLUME [$CATALINA_HOME/conf, $CATALINA_HOME/certs]
 
-CMD start.sh
+ENTRYPOINT /bin/sh catalina.sh run
